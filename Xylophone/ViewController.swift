@@ -10,13 +10,13 @@ import AVFoundation
 var player: AVAudioPlayer!
 
 let stackView = UIStackView()
-let keyC      = UIButton()
-let keyD      = UIButton()
-let keyE      = UIButton()
-let keyF      = UIButton()
-let keyG      = UIButton()
-let keyA      = UIButton()
-let keyB      = UIButton()
+let keyC = UIButton()
+let keyD = UIButton()
+let keyE = UIButton()
+let keyF = UIButton()
+let keyG = UIButton()
+let keyA = UIButton()
+let keyB = UIButton()
 
 class ViewController: UIViewController {
     
@@ -35,16 +35,16 @@ class ViewController: UIViewController {
     
     func configStackView(){
         self.view.addSubview(stackView)
-        stackView.axis            = .vertical
-        stackView.spacing         = 5
-        stackView.distribution    = .fillEqually
-        stackView.alignment       = .center
+        stackView.axis = .vertical
+        stackView.spacing = 5
+        stackView.distribution = .fillEqually
+        stackView.alignment = .center
         
         //constraints
-        stackView.translatesAutoresizingMaskIntoConstraints                                                 = false
-        stackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive           = true
-        stackView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive     = true
-        stackView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive   = true
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
     }
     
@@ -56,15 +56,15 @@ class ViewController: UIViewController {
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
         //constraints
-        button.translatesAutoresizingMaskIntoConstraints                                                       = false
-        button.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: leadingAnchor).isActive    = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: leadingAnchor).isActive = true
         button.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: trailingAnchor).isActive = true
     }
     
     @objc func buttonTapped(sender: UIButton!) {
         print("Start")
         playSound(soundName: sender.currentTitle!)
-        sender.alpha     = 0.5
+        sender.alpha = 0.5
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
             sender.alpha = 1
             print("End")
